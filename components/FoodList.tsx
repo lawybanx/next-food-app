@@ -33,21 +33,23 @@ export default async function FoodList({ category }: FoodListProps) {
   const foodData = await fetchData(category);
 
   return (
-    <div className='grid sm:grid-cols-2 gap-x-3 gap-y-10 md:grid-cols-3 my-10 place-items-center'>
-      {foodData.map((food: Food) => (
-        <div key={food.id}>
-          <Image
-            src={food.img}
-            alt='food image'
-            width={300}
-            height={300}
-            unoptimized
-          />
-          <h2>{food.dsc}</h2>
-          <p>{food.price}</p>
-          <p>⭐ {food.rate}</p>
-        </div>
-      ))}
-    </div>
+    <>
+      <div className='grid sm:grid-cols-2 gap-x-3 gap-y-10 md:grid-cols-3 my-10 place-items-center'>
+        {foodData.map((food: Food) => (
+          <div key={food.id}>
+            <Image
+              src={food.img}
+              alt='food image'
+              width={300}
+              height={300}
+              unoptimized
+            />
+            <h2>{food.dsc}</h2>
+            <p>{food.price}</p>
+            <p>⭐ {food.rate}</p>
+          </div>
+        ))}
+      </div>
+    </>
   );
 }
