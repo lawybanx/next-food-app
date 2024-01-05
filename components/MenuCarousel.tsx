@@ -1,4 +1,13 @@
+'use client';
 import Link from 'next/link';
+import { Card, CardContent } from '@/components/ui/card';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from '@/components/ui/carousel';
 
 export default function MenuCarousel() {
   const categories = [
@@ -18,14 +27,26 @@ export default function MenuCarousel() {
   ];
 
   return (
-    <>
-      <div className='flex justify-center'>
+    <Carousel
+      opts={{
+        align: 'start',
+        loop: true,
+      }}
+      className='w-10/12 m-auto'
+    >
+      <CarouselContent>
         {categories.map((category, index) => (
-          <div key={index} className='p-2 '>
-            <Link href={`/menu/${category}`}>{category}</Link>
-          </div>
+          <CarouselItem key={index} className='md:basis-1/3 lg:basis-1/6'>
+            <Card key={index}>
+              <CardContent className='flex aspect-square items-center justify-center p-6'>
+                <Link href={`/menu/${category}`}>{category}</Link>
+              </CardContent>
+            </Card>
+          </CarouselItem>
         ))}
-      </div>
-    </>
+      </CarouselContent>
+      <CarouselPrevious />
+      <CarouselNext />
+    </Carousel>
   );
 }
