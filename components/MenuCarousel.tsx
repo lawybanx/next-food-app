@@ -24,6 +24,7 @@ import {
   sausages,
   steaks,
 } from './icons';
+import { useParams } from 'next/navigation';
 
 export default function MenuCarousel() {
   const categories = [
@@ -42,6 +43,8 @@ export default function MenuCarousel() {
     { category: 'steaks', logo: steaks },
   ];
 
+  const params = useParams<{ categories: string }>();
+
   return (
     <>
       <h2 className='text-xl text-center p-5 text-orange-500'>Categories</h2>
@@ -58,7 +61,9 @@ export default function MenuCarousel() {
               key={index}
               className='basis-1/2 md:basis-1/3 lg:basis-1/6'
             >
-              <Card>
+              <Card
+                className={params.categories === category ? 'bg-red-600' : ''}
+              >
                 <CardContent className='flex aspect-square items-center justify-center p-6 text-orange-500 text-lg font-medium'>
                   <Link
                     href={`/menu/${category}`}
@@ -72,7 +77,7 @@ export default function MenuCarousel() {
                       quality={100}
                     />
 
-                    {category}
+                    {category.replace('-', ' ')}
                   </Link>
                 </CardContent>
               </Card>

@@ -8,7 +8,6 @@ export default function MenuLayout({
   return (
     <>
       <h1 className='text-4xl text-center p-5'>Our Menu</h1>
-
       <MenuCarousel />
       <div className='pt-20'>{children}</div>
     </>
