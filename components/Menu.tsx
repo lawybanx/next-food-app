@@ -1,7 +1,8 @@
 import Image from 'next/image';
+import MenuItem from './MenuItem';
 
 interface MenuProps {
-  category: string
+  category: string;
 }
 
 interface Food {
@@ -30,25 +31,12 @@ async function fetchData(category: string) {
 }
 
 export default async function Menu({ category }: MenuProps) {
-  const foodData = await fetchData(category);
+  const foodData: Array<Food> = await fetchData(category);
 
   return (
     <>
-      <div className='grid sm:grid-cols-2 gap-x-3 gap-y-10 md:grid-cols-3 my-10 place-items-center'>
-        {foodData?.map((food: Food) => (
-          <div key={food.id}>
-            <Image
-              src={food.img}
-              alt='food image'
-              width={300}
-              height={300}
-              unoptimized
-            />
-            <h2>{food.dsc}</h2>
-            <p>{food.price}</p>
-            <p>⭐ {food.rate}</p>
-          </div>
-        ))}
+      <div className='grid sm:grid-cols-2 gap-x-3 gap-y-10 lg:grid-cols-3 place-items-center'>
+        <MenuItem foodData={foodData} />
       </div>
     </>
   );
