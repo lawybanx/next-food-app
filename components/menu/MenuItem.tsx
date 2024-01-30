@@ -5,21 +5,18 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import Counter from './Counter';
-import { ShoppingCart } from 'lucide-react';
 import MenuImage from './MenuImage';
+import AddToCart from './AddToCart';
 
 interface MenuItemProps {
   foodData: Array<Food>;
 }
 
-interface Food {
+export interface Food {
   id: string;
   img: string;
-  name: string;
   dsc: string;
   price: number;
-  rate: number;
 }
 
 export default function MenuItem({ foodData }: MenuItemProps) {
@@ -37,12 +34,8 @@ export default function MenuItem({ foodData }: MenuItemProps) {
           </CardContent>
           <CardFooter className='flex justify-between'>
             <p className='text-orange-500 font-bold text-xl'>${food.price}</p>
-            <div className='flex items-center '>
-              <Counter />
-              <button className='bg-red-600 rounded-md shadow-md p-1 ml-1 hover:opacity-70'>
-                <ShoppingCart color='#ffffff' absoluteStrokeWidth />
-              </button>
-            </div>
+
+            <AddToCart food={food} />
           </CardFooter>
         </Card>
       ))}

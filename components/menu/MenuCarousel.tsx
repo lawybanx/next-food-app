@@ -23,7 +23,7 @@ import {
   sandwiches,
   sausages,
   steaks,
-} from './icons';
+} from '../icons';
 import { useParams } from 'next/navigation';
 
 export default function MenuCarousel() {
