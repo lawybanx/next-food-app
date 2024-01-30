@@ -1,11 +1,11 @@
 import Menu from '@/components/Menu';
 import { Suspense } from 'react';
+import Loading from '../loading';
 
-export default function Page({ params }: { params: { categories: string } }) {
+export default function page({ params }: { params: { categories: string } }) {
   return (
     <>
-      <Suspense fallback={<div>Loading...</div>}>
-        {/* @ts-expect-error Async Server Component */}
+      <Suspense fallback={<Loading />}>
         <Menu category={params.categories} />
       </Suspense>
     </>
