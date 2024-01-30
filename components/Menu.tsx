@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import MenuItem from './MenuItem';
 
 interface MenuProps {
@@ -17,8 +16,7 @@ interface Food {
 async function fetchData(category: string) {
   try {
     const response = await fetch(
-      `https://food-menus-api.onrender.com/${category}`,
-      { cache: 'force-cache' }
+      `https://food-menus-api.onrender.com/${category}`
     );
     if (!response.ok) {
       throw new Error('Failed to fetch data');

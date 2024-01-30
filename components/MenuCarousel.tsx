@@ -64,7 +64,7 @@ export default function MenuCarousel() {
               <Card
                 className={params.categories === category ? 'bg-red-600' : ''}
               >
-                <CardContent className='flex aspect-square items-center justify-center p-6 text-orange-500 text-lg font-medium'>
+                <CardContent className='flex aspect-square items-center justify-center p-5 text-orange-500 text-lg font-medium'>
                   <Link
                     href={`/menu/${category}`}
                     className='flex flex-col items-center'
