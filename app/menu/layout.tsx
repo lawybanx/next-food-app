@@ -1,4 +1,4 @@
-import MenuCarousel from '@/components/MenuCarousel';
+import MenuCarousel from '@/components/menu/MenuCarousel';
 
 export default function MenuLayout({
   children,
