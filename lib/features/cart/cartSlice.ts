@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Food } from '@/components/menu/MenuItem';
 
-interface CartItem extends Food {
+export interface CartItem extends Food {
   quantity: number;
   total: number;
 }
