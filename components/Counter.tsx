@@ -2,16 +2,20 @@
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import { useState } from 'react';
 
-const Counter = () => {
-  const [count, setCount] = useState(1);
+interface CounterProps {
+  count: number;
+}
+
+const Counter = ({ count }: CounterProps) => {
+  const [quantity, setQuantity] = useState(1);
 
   const handleIncrement = () => {
-    setCount(count + 1);
+    setQuantity(quantity + 1);
   };
 
   const handleDecrement = () => {
-    if (count > 1) {
-      setCount(count - 1);
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
     }
   };
 
