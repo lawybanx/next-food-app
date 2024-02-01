@@ -33,7 +33,7 @@ export default async function Menu({ category }: MenuProps) {
 
   return (
     <>
-      <div className='grid sm:grid-cols-2 gap-x-3 gap-y-10 lg:grid-cols-3 place-items-center'>
+      <div className='flex flex-wrap gap-1 md:gap-x-1 md:gap-y-10 lg:gap-x-1 lg:gap-y-10 justify-center'>
         <MenuItem foodData={foodData} />
       </div>
     </>
