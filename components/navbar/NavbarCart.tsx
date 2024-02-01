@@ -11,7 +11,7 @@ export default function NavbarCart() {
     <Sheet>
       <SheetTrigger asChild>
         <div className='relative cursor-pointer'>
-          <ShoppingCart />
+          <ShoppingCart color='#fff'/>
           <div className='absolute -top-2 -right-2 w-5 h-5 rounded-lg bg-white text-orange-500 flex items-center justify-center text-xs'>
             {quantity}
           </div>
