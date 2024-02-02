@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import { StoreProvider } from '@/lib/StoreProvider';
 import { Toaster } from '@/components/ui/sonner';
+import AppBackground from '@/components/AppBackground';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -22,6 +23,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <StoreProvider>
           <Navbar />
+          <AppBackground />
           <div className='pt-20'>{children}</div>
         </StoreProvider>
         <Toaster position='top-right' closeButton richColors />
