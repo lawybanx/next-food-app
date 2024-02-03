@@ -1,23 +1,23 @@
 import { CartItem } from '@/lib/features/cart/cartSlice';
 import Image from 'next/image';
-import Counter from '../Counter';
+import CartFunctions from './CartFunctions';
 
 interface CartItemProps {
   item: CartItem;
 }
 
 export default function CartItem({ item }: CartItemProps) {
-  const { id, img, dsc, price, quantity, total } = item;
+  const { id, img, dsc, price, quantity } = item;
 
   return (
-    <div className='flex'>
-      <div>
-        <Image src={img} alt='food image' width={100} height={100} unoptimized />
-      </div>
-      <div>
+    <div className='flex py-5'>
+      <Image src={img} alt='food image' width={100} height={100} unoptimized />
+
+      <div className='space-y-1 px-1 w-full'>
         <h3>{dsc}</h3>
-        <p className='font-bold'>${price}</p>
-        <p>Quantity: <Counter count={quantity}/></p>
+        <p className='font-bold text-orange-500'>${price}</p>
+        {/* <p>Quantity: <Counter count={quantity}/></p> */}
+        <CartFunctions id={id} quantity={quantity}/>
       </div>
     </div>
   );

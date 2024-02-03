@@ -39,11 +39,45 @@ const cart = createSlice({
 
       state.totalPrice += itemTotal;
     },
+    increment: (state, action: PayloadAction<string>) => {
+      const itemIndex = state.items.findIndex(
+        item => item.id === action.payload
+      );
+
+      if (itemIndex !== -1) {
+        state.items[itemIndex].quantity += 1;
+        state.items[itemIndex].total += state.items[itemIndex].price;
+        state.totalPrice += state.items[itemIndex].price;
+      }
+    },
+    decrement: (state, action: PayloadAction<string>) => {
+      const itemIndex = state.items.findIndex(
+        item => item.id === action.payload
+      );
+
+      if (itemIndex !== -1 && state.items[itemIndex].quantity > 1) {
+        state.items[itemIndex].quantity -= 1;
+        state.items[itemIndex].total -= state.items[itemIndex].price;
+        state.totalPrice -= state.items[itemIndex].price;
+      }
+    },
+    removeFromCart: (state, action: PayloadAction<string>) => {
+      const itemIndex = state.items.findIndex(
+        item => item.id === action.payload
+      );
+
+      if (itemIndex !== -1) {
+        state.totalItems -= 1
+        state.totalPrice -= state.items[itemIndex].total;
+        state.items.splice(itemIndex, 1);
+      }
+    },
     reset: state => {
       state = initialState;
     },
   },
 });
 
-export const { addToCart, reset } = cart.actions;
+export const { addToCart, increment, decrement, removeFromCart, reset } =
+  cart.actions;
 export default cart.reducer;
