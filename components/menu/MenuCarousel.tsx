@@ -47,7 +47,9 @@ export default function MenuCarousel() {
 
   return (
     <>
-      <h2 className='text-xl text-center p-5 pt-0 text-orange-500'>Categories</h2>
+      <h2 className='text-xl text-center p-5 pt-0 text-orange-500'>
+        Categories
+      </h2>
       <Carousel
         opts={{
           align: 'start',
@@ -62,7 +64,11 @@ export default function MenuCarousel() {
               className='basis-1/3 sm:basis-1/4 md:basis-1/5 lg:basis-1/6'
             >
               <Card
-                className={params.categories === category ? 'bg-red-600' : ''}
+                className={
+                  params.categories === category
+                    ? 'bg-red-600'
+                    : 'hover:bg-transparent border-none duration-500'
+                }
               >
                 <CardContent className='flex aspect-square items-center justify-center p-5 text-orange-500 text-lg font-medium'>
                   <Link
@@ -76,7 +82,9 @@ export default function MenuCarousel() {
                       placeholder='blur'
                       quality={100}
                     />
-                    <p className='hidden md:block'>{category.replace('-', ' ')}</p>
+                    <p className='hidden md:block'>
+                      {category.replace('-', ' ')}
+                    </p>
                   </Link>
                 </CardContent>
               </Card>

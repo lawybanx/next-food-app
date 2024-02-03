@@ -74,6 +74,9 @@ module.exports = {
       lineClamp: {
         2: '2',
       },
+      backgroundImage: {
+        'pattern': "url('/pattern.avif')"
+      }
     },
   },
   plugins: [require('tailwindcss-animate')],
