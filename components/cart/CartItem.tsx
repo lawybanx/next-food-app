@@ -16,7 +16,6 @@ export default function CartItem({ item }: CartItemProps) {
       <div className='space-y-1 px-1 w-full'>
         <h3>{dsc}</h3>
         <p className='font-bold text-orange-500'>${price}</p>
-        {/* <p>Quantity: <Counter count={quantity}/></p> */}
         <CartFunctions id={id} quantity={quantity}/>
       </div>
     </div>

@@ -32,8 +32,12 @@ export default function Cart() {
       {items.map((item, _) => (
         <CartItem key={_} item={item} />
       ))}
-      {/* total price */}
       <SheetFooter>
+        <div className='py-5 text-xl font-bold flex justify-between'>
+          <p>Subtotal: </p>
+          <span>${totalPrice}</span>
+        </div>
+
         <SheetClose asChild>
           <Button className='flex w-full text-lg'>
             <ShoppingBagIcon className='mr-1' />
