@@ -16,7 +16,7 @@ export default function MenuImage({ image, alt }: MenuImageProps) {
   };
 
   return (
-    <div className='bg-muted animate-pulse'>
+    <div>
       <Image
         src={image}
         alt={alt}
@@ -24,8 +24,8 @@ export default function MenuImage({ image, alt }: MenuImageProps) {
         height={500}
         onLoad={handleImageLoad}
         unoptimized
-        className={`transition-opacity duration-300 ${
-          imageLoading ? 'opacity-0' : 'opacity-100'
+        className={`transition-opacity ${
+          imageLoading ? 'bg-muted animate-pulse opacity-0' : 'opacity-100'
         }`}
       />
     </div>
