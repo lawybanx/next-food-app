@@ -3,7 +3,12 @@
 import Image from 'next/image';
 import { useState } from 'react';
 
-export default function MenuImage({ image }: { image: string }) {
+interface MenuImageProps {
+  image: string;
+  alt: string;
+}
+
+export default function MenuImage({ image, alt }: MenuImageProps) {
   const [imageLoading, setImageLoading] = useState(true);
 
   const handleImageLoad = () => {
@@ -14,7 +19,7 @@ export default function MenuImage({ image }: { image: string }) {
     <div className='bg-slate-100'>
       <Image
         src={image}
-        alt='food image'
+        alt={alt}
         width={500}
         height={500}
         onLoad={handleImageLoad}
