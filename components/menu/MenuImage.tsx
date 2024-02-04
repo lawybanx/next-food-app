@@ -16,7 +16,7 @@ export default function MenuImage({ image, alt }: MenuImageProps) {
   };
 
   return (
-    <div className='bg-slate-100'>
+    <div className='bg-muted animate-pulse'>
       <Image
         src={image}
         alt={alt}

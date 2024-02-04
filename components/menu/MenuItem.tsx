@@ -23,9 +23,9 @@ export default function MenuItem({ foodData }: MenuItemProps) {
   return (
     <>
       {foodData?.map((food: Food) => (
-        <Card key={food.id} className='w-[280px] h-auto border-0 shadow-none '>
+        <Card key={food.id} className='w-[280px] h-auto border-0'>
           <CardHeader className='h-[300px] px-3'>
-            <MenuImage image={food.img} alt={food.dsc}/>
+            <MenuImage image={food.img} alt={food.dsc} />
           </CardHeader>
           <CardContent className='px-3 pb-2'>
             <CardTitle className='h-[52px] line-clamp-2 overflow-hidden text-lg'>
