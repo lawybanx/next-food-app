@@ -25,7 +25,7 @@ export default function MenuImage({ image, alt }: MenuImageProps) {
         onLoad={handleImageLoad}
         unoptimized
         className={`transition-opacity ${
-          imageLoading ? 'bg-muted animate-pulse opacity-0' : 'opacity-100'
+          imageLoading ? 'bg-slate-200 animate-pulse opacity-0' : 'opacity-100'
         }`}
       />
     </div>
