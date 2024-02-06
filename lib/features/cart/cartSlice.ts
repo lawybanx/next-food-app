@@ -27,7 +27,8 @@ const cart = createSlice({
         item => item.id === action.payload.id
       );
 
-      const itemTotal = action.payload.price * action.payload.quantity;
+      const itemPriceInCents = Math.round(action.payload.price * 100);
+      const itemTotal = itemPriceInCents * action.payload.quantity;
 
       if (existingItemIndex !== -1) {
         state.items[existingItemIndex].quantity += action.payload.quantity;
@@ -45,9 +46,10 @@ const cart = createSlice({
       );
 
       if (itemIndex !== -1) {
+        const itemPriceInCents = Math.round(state.items[itemIndex].price * 100);
         state.items[itemIndex].quantity += 1;
-        state.items[itemIndex].total += state.items[itemIndex].price;
-        state.totalPrice += state.items[itemIndex].price;
+        state.items[itemIndex].total += itemPriceInCents;
+        state.totalPrice += itemPriceInCents;
       }
     },
     decrement: (state, action: PayloadAction<string>) => {
@@ -56,9 +58,10 @@ const cart = createSlice({
       );
 
       if (itemIndex !== -1 && state.items[itemIndex].quantity > 1) {
+        const itemPriceInCents = Math.round(state.items[itemIndex].price * 100);
         state.items[itemIndex].quantity -= 1;
-        state.items[itemIndex].total -= state.items[itemIndex].price;
-        state.totalPrice -= state.items[itemIndex].price;
+        state.items[itemIndex].total -= itemPriceInCents;
+        state.totalPrice -= itemPriceInCents;
       }
     },
     removeFromCart: (state, action: PayloadAction<string>) => {
@@ -67,7 +70,7 @@ const cart = createSlice({
       );
 
       if (itemIndex !== -1) {
-        state.totalItems -= 1
+        state.totalItems -= 1;
         state.totalPrice -= state.items[itemIndex].total;
         state.items.splice(itemIndex, 1);
       }

@@ -15,6 +15,11 @@ import CartItem from './CartItem';
 export default function Cart() {
   const { items, totalItems, totalPrice } = useAppSelector(state => state.cart);
 
+  const formatPrice = (priceInCents: number) => {
+    const priceInDollars = (priceInCents / 100).toFixed(2); // Convert cents to dollars and fix to 2 decimal places
+    return `$${priceInDollars}`;
+  };
+
   return (
     <SheetContent className='z-[999] overflow-y-scroll'>
       <SheetHeader>
@@ -35,7 +40,7 @@ export default function Cart() {
       <SheetFooter>
         <div className='py-5 text-xl font-bold flex justify-between'>
           <p>Subtotal: </p>
-          <span>${totalPrice}</span>
+          <span>{formatPrice(totalPrice)}</span>
         </div>
 
         <SheetClose asChild>
