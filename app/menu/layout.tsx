@@ -6,7 +6,7 @@ export default function MenuLayout({
   children: React.ReactNode;
 }) {
   return (
-    <section className='mx-auto w-full max-w-7xl bg-pattern'>
+    <section className='mx-auto w-full max-w-7xl bg-pattern max-sm:bg-contain'>
       <>
         <h1 className='text-4xl text-center p-5'>Our Menu</h1>
         <div className=' mx-7 md:mx-0'>
