@@ -12,7 +12,15 @@ export default function MenuImage({ food }: MenuImageProps) {
   const { id, img, dsc, rate } = food;
 
   const [imageLoading, setImageLoading] = useState(true);
-  const [hoveredItemId, setHoveredItemId] = useState<string | null>(null);
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
 
   const handleImageLoad = () => {
     setImageLoading(false);
@@ -21,8 +29,8 @@ export default function MenuImage({ food }: MenuImageProps) {
   return (
     <div
       className='relative'
-      onMouseEnter={() => setHoveredItemId(id)}
-      onMouseLeave={() => setHoveredItemId(null)}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
       <Image
         src={img}
@@ -31,11 +39,11 @@ export default function MenuImage({ food }: MenuImageProps) {
         height={500}
         onLoad={handleImageLoad}
         unoptimized
-        className={`transition-opacity ${
+        className={`transition-opacity  ${
           imageLoading ? 'bg-slate-200 animate-pulse opacity-0' : 'opacity-100'
         }`}
       />
-      {hoveredItemId === id && <MenuItemRatings ratings={rate} />}
+      {isHovered && <MenuItemRatings ratings={rate} />}
     </div>
   );
 }
