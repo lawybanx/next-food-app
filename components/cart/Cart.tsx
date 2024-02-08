@@ -11,6 +11,7 @@ import { Button } from '../ui/button';
 import { ShoppingBagIcon, X } from 'lucide-react';
 import { useAppSelector } from '@/lib/hooks';
 import CartItem from './CartItem';
+import Link from 'next/link';
 
 export default function Cart() {
   const { items, totalItems, totalPrice } = useAppSelector(state => state.cart);
@@ -46,7 +47,7 @@ export default function Cart() {
         <SheetClose asChild>
           <Button className='flex w-full text-lg'>
             <ShoppingBagIcon className='mr-1' />
-            Checkout
+            <Link href={'/checkout'}>Checkout</Link>
           </Button>
         </SheetClose>
       </SheetFooter>
