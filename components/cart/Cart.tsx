@@ -33,7 +33,7 @@ export default function Cart() {
             <X className='h-7 w-7' />
           </SheetClose>
         </SheetTitle>
-        {/* <SheetDescription>Below are your Cart Items</SheetDescription> */}
+        <SheetDescription>Below are your Cart Items</SheetDescription>
       </SheetHeader>
       {items.map((item, _) => (
         <CartItem key={_} item={item} />
@@ -44,12 +44,14 @@ export default function Cart() {
           <span>{formatPrice(totalPrice)}</span>
         </div>
 
-        <SheetClose asChild>
-          <Button className='flex w-full text-lg'>
-            <ShoppingBagIcon className='mr-1' />
-            <Link href={'/checkout'}>Checkout</Link>
-          </Button>
-        </SheetClose>
+        <Link href={'/checkout'}>
+          <SheetClose asChild>
+            <Button className='flex w-full text-lg'>
+              <ShoppingBagIcon className='mr-1' />
+              Checkout
+            </Button>
+          </SheetClose>
+        </Link>
       </SheetFooter>
     </SheetContent>
   );
