@@ -30,7 +30,7 @@ export default function CartFunctions({ id, quantity }: CartFunctionsProps) {
 
   return (
     <div className='flex justify-between'>
-      <div className='flex space-x-3 bg-slate-50 w-20 p-1 items-center'>
+      <div className='flex space-x-3 border px-1 items-center'>
         <Minus className='cursor-pointer' onClick={handleDecrement} />
         <span>{quantity}</span>
         <Plus className='cursor-pointer' onClick={handleIncrement} />

@@ -22,7 +22,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <StoreProvider>
           <Navbar />
-          <div className='pt-16'>{children}</div>
+          <div className='mt-16'>{children}</div>
         </StoreProvider>
         <Toaster position='top-right' closeButton richColors />
       </body>

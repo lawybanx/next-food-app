@@ -14,7 +14,7 @@ export default function Navbar() {
     { title: 'Contact Us', path: '/contact' },
   ];
   return (
-    <nav className='fixed top-0 z-[998] bg-orange-500 text-white w-full backdrop-blur'>
+    <nav className='fixed top-0 z-[998] bg-foreground text-white w-full backdrop-blur'>
       <div className='items-center px-4 max-w-screen-xl mx-auto md:flex md:px-8'>
         <div className='flex items-center justify-between py-3 md:py-5 md:block'>
           <div className='flex'>

@@ -11,7 +11,7 @@ export default function CartItem({ item }: CartItemProps) {
 
   return (
     <div className='flex py-5'>
-      <Image src={img} alt='food image' width={100} height={100} unoptimized />
+      <Image src={img} alt='food image' width={70} height={60} unoptimized />
 
       <div className='space-y-1 px-1 w-full'>
         <h3>{dsc}</h3>
